@@ -27,7 +27,7 @@ header nav{display:flex;gap:26px}header nav a{color:var(--mu);text-decoration:no
 .chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ln);border-radius:99px;padding:6px 16px;font-size:14px;color:var(--mu)}
 .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:ping 2.2s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%,100%{box-shadow:0 0 0 9px rgba(74,222,128,0)}}
-.hero h1{font-size:clamp(46px,9.5vw,90px);font-weight:800;letter-spacing:-.055em;line-height:.96;max-width:11em;margin:26px auto 0}
+.hero h1{font-size:clamp(46px,9.5vw,74px);font-weight:800;letter-spacing:-.055em;line-height:.96;max-width:11em;margin:26px auto 0}
 .sub{font-size:clamp(17px,2.2vw,21px);color:var(--mu);max-width:34em;margin:24px auto 0}
 .cta,#ct{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
 .cta a,#ct a{padding:14px 28px;border-radius:99px;font-weight:600;text-decoration:none;border:1px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--g) border-box;transition:transform .25s,box-shadow .25s}
@@ -94,12 +94,32 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 .proj:hover .shot img{transform:scale(1.04)}
 .body{padding:22px 24px 24px;display:grid}
 @media(min-width:760px){.proj.feat{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr}.proj.feat .shot{aspect-ratio:auto;min-height:280px}.proj.feat h3{font-size:28px}.proj.feat .body{align-content:center}}
+.ic{width:16px;height:16px;flex:none}
+.cta a,#ct a{display:inline-flex;align-items:center;gap:9px}
+.pitch{min-height:5.6em}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:34px 44px;max-width:920px;margin:84px auto 0}
+.proof small{display:block;font:600 11.5px Figtree,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8B96FF;margin-bottom:4px}
+.skills li{display:inline-flex;align-items:center;gap:7px}.skills li img{width:15px;height:15px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px;margin-top:36px}
+.sub3{font:600 14px Figtree,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:6px}
+.row{display:grid;grid-template-columns:48px 1fr auto;gap:0 16px;border-top:1px solid var(--ln);padding:22px 0}
+.rt{display:block}.row b,.rec b{display:block;font-size:19px;letter-spacing:-.02em}
+.rt .o{display:block;font-size:15px}.rt .m{display:block;color:#9AA4FF;font-size:13.5px;margin:2px 0 6px}.rt .d{display:block;color:var(--mu);font-size:15.5px}
+.lg{position:relative;display:grid;place-items:center;width:48px;height:48px;border-radius:12px;border:1px solid var(--ln);background:var(--cd);font:700 11px "Bricolage Grotesque",sans-serif;font-style:normal;color:var(--mu);overflow:hidden}
+.lg::after{content:attr(data-l)}.lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7px;background:#fff;z-index:1}
+.ph{grid-column:3;width:76px;height:76px;border-radius:18px;object-fit:cover}
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;margin-top:36px}
+.rec{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:22px;border:1px solid var(--ln);border-radius:22px;background:var(--cd);text-decoration:none;transition:transform .3s,border-color .3s}
+.rec:hover{transform:translateY(-4px);border-color:rgba(139,150,255,.5)}
+.certs{margin-top:44px;text-align:center;font-size:13px;color:var(--mu)}.certs div{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px}
+.certs a,.certs span+div span{border:1px solid var(--ln);border-radius:99px;padding:3px 13px;color:var(--mu);text-decoration:none;font-size:12.5px;transition:.2s}.certs a:hover{color:var(--tx);border-color:#8B96FF}
+@media(max-width:700px){.cols{grid-template-columns:1fr}.row{grid-template-columns:48px 1fr}.ph{display:none}}
 </style>
 </head>
 <body>
 <header><div class="wrap"><strong>Sendy Tegar Mahendra</strong>
 <nav><a href="#projects" data-i="nProj"></a><a href="#skills" data-i="nSkill"></a><a href="#exp" data-i="nExp"></a><a href="#contact" data-i="nCont"></a></nav>
-<div class="lang" role="group" aria-label="Language"><button data-l="id">ID</button><button data-l="en">EN</button></div></div></header>
+<div class="lang" role="group" aria-label="Language"><button data-lang="id">ID</button><button data-lang="en">EN</button></div></div></header>
 <main class="wrap">
 <div class="hero">
 <span class="chip" data-i="open"></span>
@@ -127,23 +147,26 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 <section id="secIt"><h2 class="rv" data-i="iTitle"></h2><p class="lead rv" data-i="iLead"></p><div class="plist" id="listI"></div></section>
 </div>
 <section id="skills"><h2 class="rv" data-i="nSkill"></h2><div class="skills rv" id="sk"></div></section>
-<section id="exp"><h2 class="rv" data-i="nExp"></h2><div class="exp rv" id="ex"></div></section>
+<section id="exp"><h2 class="rv" data-i="nExp"></h2><div class="cols rv"><div><h3 class="sub3" data-i="nWork"></h3><div id="ex"></div></div><div><h3 class="sub3" data-i="nOrg"></h3><div id="og"></div></div></div></section>
+<section id="edu"><h2 class="rv" data-i="nEdu"></h2><div class="rv" id="ed" style="margin-top:30px"></div></section>
+<section id="recog"><h2 class="rv" data-i="nRec"></h2><div class="recs rv" id="rc"></div></section>
 <section id="note"><div class="note rv"><h2 data-i="noteT"></h2><p data-i="noteB"></p></div></section>
 <section id="contact"><div class="panel rv"><h2 data-i="nCont"></h2><p class="lead" data-i="contLead"></p><div id="ct"></div></div></section>
+<div class="certs rv"><span data-i="nCert"></span><div id="cx"></div></div>
 </main>
 <footer><div class="wrap"><span>© 2026 Sendy Tegar Mahendra</span><a id="arch" data-i="archive"></a></div></footer>
 
 <script>
 /* ===== ISI DI SINI (kosongkan "" bila belum ada; tautan kosong otomatis tidak ditampilkan) ===== */
-const CFG={github:"https://github.com/sndy9080",email:"mailto:sndy9080@gmail.com",linkedin:"https://www.linkedin.com/in/sendytegar/",cv:"",
-archive:"https://oil-link-e29.notion.site/Portfolio-3d68df3bbbe4808ca254ee30ad84a26e"};
+const CFG={github:"https://github.com/sndy9080",email:"mailto:sndy9080@gmail.com",linkedin:"https://www.linkedin.com/in/sendytegar/",cv:"",whatsapp:"https://wa.me/6285226151683",
+archive:""};
 /* =============================================================================================== */
 const R="https://github.com/sndy9080/";
 const T={
 id:{nProj:"Proyek",nSkill:"Keahlian",nExp:"Pengalaman",nCont:"Kontak",head:"Sendy Tegar Mahendra, lulusan Teknik Komputer, Data Analyst atau IT Support & System Development.",open:"Terbuka untuk posisi IT & Data Analyst",h1:"Data yang rapi, sistem yang berjalan.",noteT:"Catatan jujur.",noteB:"Saya masih mahasiswa dan belajar paling cepat dengan membangun. Beberapa proyek saya kerjakan dalam tim, dan peran saya ditulis di tiap kartu. Saya mencari magang untuk menerapkannya di lingkungan kerja yang nyata.",
 lookFor:"Saya melamar untuk:",data:"Data Analyst",it:"IT Support & System Dev",
 projLead:"Sembilan proyek, diurutkan sesuai peran yang Anda pilih di atas. Semua kode ada di GitHub.",
-repo:"Lihat repositori",cv:"Unduh CV",contLead:"Terbuka untuk magang/posisi IT dan Data Analyst. Hubungi saya lewat:",archive:"Arsip lengkap di Notion",
+repo:"Lihat repositori",cv:"Unduh CV",contLead:"Terbuka untuk magang/posisi IT dan Data Analyst. Hubungi saya lewat:",/*archive:"Arsip lengkap di Notion",*/
 p:{all:"Saya membangun sistem dari sensor sampai dashboard: perangkat IoT, model data, dan aplikasi yang benar-benar dipakai.",
 data:"Saya mengubah data mentah menjadi keputusan: pembersihan data, model NLP dan CNN, serta dashboard Tableau.",
 it:"Saya menjaga sistem tetap berjalan: jaringan LAN, troubleshooting, aplikasi web, database, dan dokumentasi.",
@@ -156,7 +179,7 @@ ex:[["IT Network Engineer Intern, BTI UMS","Feb 2025. Instalasi LAN topologi Sta
 en:{nProj:"Projects",nSkill:"Skills",nExp:"Experience",nCont:"Contact",head:"Sendy Tegar Mahendra, a computer engineering graduate currently seeking a position as a Data Analyst or in the field of IT Support & Systems Development.",open:"Open for internships/positions in IT and Data Analysis",h1:"Clean data, running systems.",noteT:"An honest note.",noteB:"I am still a student and learn fastest by building. Some projects were team efforts, and my role is stated on each card. I am looking for an internship to apply this in a real working environment.",
 lookFor:"I am applying for:",data:"Data Analyst",it:"IT Support & System Dev",
 projLead:"Nine projects, ordered by the role you pick above. All code is on GitHub.",
-repo:"View repository",cv:"Download CV",contLead:"Open for internships/positions in IT and Data Analysis. Reach me via:",archive:"Full archive on Notion",
+repo:"View repository",cv:"Download CV",contLead:"Open for internships/positions in IT and Data Analysis. Reach me via:",/*archive:"Full archive on Notion",*/
 p:{all:"I build systems from sensor to dashboard: IoT devices, data models, and apps people actually use.",
 data:"I turn raw data into decisions: data cleaning, NLP and CNN models, and Tableau dashboards.",
 it:"I keep systems running: LAN setup, troubleshooting, web apps, databases, and documentation.",
@@ -166,69 +189,89 @@ sk:["Data & ML","IoT & Embedded","Software & Web","Infrastructure & Admin"],
 ex:[["IT Network Engineer Intern, BTI UMS","Feb 2025. Star-topology LAN installation, RJ45 crimping, switch and access point deployment, helpdesk, hardware inventory."],
 ["Industry placement, MNS Computer","Work-practice certificate."],
 ["Journal publication","IoT Smart Classroom with priority-control architecture (Lead Researcher)."]]}};
-const SK=[["Python · Pandas · Matplotlib","Tableau","SQL (MySQL/PostgreSQL)","EDA dan data cleaning","Scikit-Learn · NLP · IndoBERT","Google Colab"],
-["Instalasi LAN (UTP, RJ45)","Switch dan access point","Troubleshooting dan CLI","Inventaris aset TI","Dokumentasi teknis","MikroTik dasar"],
-["HTML/CSS/JavaScript","PHP","Flutter / Dart","REST API","Google Apps Script dan Twilio","Firebase (RTDB, Auth)"],
-["ESP32 / Arduino / NodeMCU","Git / GitHub","Microsoft Office","Figma"]];
-Object.assign(T.id,{dTitle:"Data Analytics",dLead:"Proyek utama: SuperStore Analytics, dilanjutkan analisis teks dan citra.",iTitle:"IT Support & System Development",iLead:"Jaringan dan sistem yang saya pasang, bangun, dan rawat, dari LAN kampus sampai aplikasi terintegrasi.",
-sk:["Data & Analytics","IT Support & Infrastruktur","Pengembangan Sistem","Pendukung"],
-proof:[["51.000+","baris transaksi dianalisis"],["−$64.083","sumber kerugian ditemukan"],["< 8 detik","notifikasi WhatsApp otomatis"],["3,76","IPK S1 Teknik Komputer"],["HKI + jurnal","terdaftar 2024, terbit 2026"]]});
-Object.assign(T.en,{dTitle:"Data Analytics",dLead:"Lead project: SuperStore Analytics, followed by text and image analysis.",iTitle:"IT Support & System Development",iLead:"Networks and systems I installed, built and maintained, from campus LAN to integrated apps.",
-sk:["Data & Analytics","IT Support & Infrastructure","System Development","Supporting tools"],
-proof:[["51,000+","transaction rows analysed"],["−$64,083","loss source identified"],["< 8 s","automatic WhatsApp alert"],["3.76","GPA, B.Eng. Computer Engineering"],["IP + journal","registered 2024, published 2026"]]});
-T.id.p.data="Saya mengubah data mentah menjadi keputusan: pembersihan data dengan Python, dashboard Tableau, dan laporan yang siap dipakai tim.";
-T.id.p.it="Saya menjaga sistem tetap berjalan dan ikut mengembangkannya: jaringan LAN, troubleshooting, database SQL, aplikasi web, dan dokumentasi.";
-T.en.p.data="I turn raw data into decisions: data cleaning in Python, Tableau dashboards, and reports teams can use right away.";
-T.en.p.it="I keep systems running and help improve them: LAN setup, troubleshooting, SQL databases, web apps and documentation.";
+const IC={mail:'<svg class="ic" viewBox="0 0 16 16"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2 4.5l6 4.500 6-4.500" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>',
+in:'<svg class="ic" viewBox="0 0 16 16"><path d="M2 6h3v8H2zM3.5 2a1.700 1.700 0 110 3.400 1.700 1.700 0 010-3.400zM7 6h2.900v1.100c.5-.8 1.500-1.300 2.700-1.300C14.800 5.800 15 7.600 15 9.500V14h-3v-4c0-1-.1-1.900-1.200-1.900S10 9 10 10v4H7z" fill="currentColor"/></svg>',
+wa:'<svg class="ic" viewBox="0 0 16 16"><path d="M2 14l.9-3A6 6 0 1 1 5 13.100z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 5.500c0 2.500 2 4.500 4.500 4.500l.8-1.200-1.500-.8-.7.600c-.6-.3-1.200-.9-1.500-1.500l.6-.7-.8-1.500z" fill="currentColor"/></svg>',
+gh:'<svg class="ic" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'};
+/* Sertifikat: isi "u" dengan tautan Google Drive masing-masing */
+const CERTS=[{n:"Instalasi Jaringan Dasar (Jaringan & MikroTik), 2022",u:"https://drive.google.com/file/d/1ZVk_CQhViIW_kjOwomi3l5mkcGfWzcv0/view"},{n:"Praktik Sistem Ganda, MNS Computer",u:"https://drive.google.com/file/d/1mtQOr3PZX5sjy1x-2PiMkOZxAdbB24tJ/view"},{n:"Intro to Data Analytics",u:"https://drive.google.com/file/d/1xUets0cONUCElsHP3awSOcsVkdVmTsFa/view"},{n:"Belajar Dasar Visualisasi Data",u:"https://drive.google.com/file/d/1JzUdVWXz9LRUtPC2QjV9R_FgFWkD7dXE/view"},{n:"Memulai Pemrograman dengan Python",u:"https://drive.google.com/file/d/1uWAQNrMjzBlHf03TZJy4aCzyHhtbx7aE/view"},{n:"AI Productivity and AI API Integration for Developers",u:"https://drive.google.com/file/d/1l4lsxvsSNW7z9-dlDThZ9TLDUBMk-ylJ/view"},{n:"Networking Basics",u:"https://drive.google.com/file/d/1F9ZZqESd41jRDwJKbA9RJfunDXFmLeNb/view"},{n:"Belajar Dasar Cloud dan Gen AI AWS",u:"https://drive.google.com/file/d/131hpNfVINMWVwK-veSKsbvt23HkC3Tm5/view"},{n:"Spec-Driven Development dengan Kiro",u:"https://drive.google.com/file/d/1e-GplZSvz6E0S5vHvDCQvEZRVvWsP2sB/view"},{n:"Build an AI Agent",u:"https://drive.google.com/file/d/1-HL5VlMkKcBrRukRKSHhTrLuhsHws9xS/view"}];
+const L=a=>a[lang==="id"?0:1];
+function nx(i){const e=["png","jpg","jpeg","webp"],k=+i.dataset.k||0;if(k<e.length){i.dataset.k=k+1;i.src=i.dataset.b+"."+e[k]}else i.remove()}
+const SK=[[["Python","python"],["Pandas","pandas"],["Tableau","tableau"],["SQL (MySQL/PostgreSQL)","mysql"],["Scikit-Learn","scikitlearn"],["TensorFlow","tensorflow"],["NLP & IndoBERT"],["Google Colab","googlecolab"]],
+[["LAN Installation (UTP, RJ45)"],["Switch & Access Point"],["Troubleshooting & CLI"],["IT Asset Inventory"],["Technical Documentation"],["MikroTik (basic)","mikrotik"]],
+[["HTML/CSS/JavaScript","html5"],["PHP","php"],["Flutter","flutter"],["REST API"],["Google Apps Script","googleappsscript"],["Twilio API","twilio"],["Firebase","firebase"]],
+[["ESP32","espressif"],["Arduino","arduino"],["NodeMCU ESP8266","espressif"],["Sensor Integration"],["PWM Control"],["Circuit Prototyping (Proteus)"]],
+[["Git","git"],["GitHub","github"],["Figma","figma"],["Google Sheets","googlesheets"],["Microsoft Office"]]];
+const EX=[{t:["IT Network Engineer Intern","IT Network Engineer Intern"],o:"Biro Teknologi Informasi (BTI), Universitas Muhammadiyah Surakarta",m:["Februari 2025","February 2025"],d:["Memasang LAN topologi Star di beberapa fakultas dan gedung kampus (UTP, crimping RJ45), memasang switch dan access point, serta mendiagnosis gangguan dengan LAN tester dan CLI.","Installed Star-topology LAN across several faculties and campus buildings (UTP, RJ45 crimping), deployed switches and access points, and diagnosed faults with a LAN tester and CLI."],l:"ums",s:"UMS"},
+{t:["Web Administrator (PKM)","Web Administrator (PKM)"],o:"Website UMKM Batik Canting Art",m:["Sep–Des 2024","Sep–Dec 2024"],d:["Mengelola operasional cantingart.biz.id dan berkoordinasi dengan dosen pembimbing agar konten dan akses website tetap stabil.","Managed the day-to-day operation of cantingart.biz.id and coordinated with the supervising lecturer to keep content and access stable."],l:"cantingart",s:"CA"}];
+const OG=[{t:["Sekretaris Umum","General Secretary"],o:"Himpunan Mahasiswa Teknik Komputer",m:["2022–2025","2022–2025"],d:["Mengelola administrasi organisasi secara menyeluruh, memakai MS Office untuk dokumentasi surat-menyurat, dan menyusun laporan pertanggungjawaban kegiatan secara berkala.","Ran organisation-wide administration, used MS Office for correspondence and documentation, and prepared periodic accountability reports."],l:"hmtk",s:"HMTK"},
+{t:["Kepala Bidang Humas & Publikasi","Head of Public Relations & Publications"],o:"HIPMI PT UMUKA",m:["2025–2026","2025–2026"],d:["Mengoordinasikan divisi Humas dan Publikasi dalam mengelola arus informasi dan branding visual, menginisiasi strategi publikasi lintas kanal media, serta mewakili organisasi bagi mitra eksternal dan masyarakat.","Led the PR and Publications division across information flow and visual branding, initiated cross-channel publication strategy, and represented the organisation to external partners and the public."],l:"hipmi",s:"HIPMI"}];
+const ED={t:["S1 Teknik Komputer","Bachelor's in Computer Engineering"],o:"Universitas Muhammadiyah Karanganyar",m:["IPK 3,76/4,00 · Sep 2022 – Agu 2026","GPA 3.76/4.00 · Sep 2022 – Aug 2026"],d:["",""],l:"umuka",s:"UMUKA"};
+const RC=[["https://drive.google.com/file/d/1htie5MydV7mfyvf5Kk_4wPA6i2gBEyhy/view","HKI",["Hak Kekayaan Intelektual, Program Komputer","Intellectual Property Rights, Computer Program"],["Prototype Tempat Sampah Otomatis: Mengklasifikasi Jenis Sampah Berbasis Arduino","Automated Waste Bin Prototype: Arduino-Based Waste Classification"],["Kemenkumham RI · 2024","Ministry of Law, Indonesia · 2024"]],
+["https://jurnal.itscience.org/index.php/digitech/article/view/8130","JURNAL",["Digital Transformation Technology Journal","Digital Transformation Technology Journal"],["Implementasi Smart Classroom Berbasis IoT dengan Arsitektur Kontrol Penentuan Prioritas dan Monitoring Okupansi","Implementasi Smart Classroom Berbasis IoT dengan Arsitektur Kontrol Penentuan Prioritas dan Monitoring Okupansi"],["Mei 2026","May 2026"]]];
+Object.assign(T.id,{nProj:"Project",nSkill:"Skills",repo:"Lihat repository",nWork:"Kerja & Magang",nOrg:"Organisasi",nEdu:"Pendidikan",nRec:"Publikasi & HKI",nCert:"Sertifikat",dTitle:"Data Analytics",dLead:"Project utama: SuperStore Analytics, diikuti analisis teks dan image classification.",iTitle:"IT Support & System Development",iLead:"Jaringan dan sistem yang saya pasang, bangun, dan rawat, dari LAN kampus sampai aplikasi terintegrasi.",
+sk:["Data & Analytics","IT Support & Infrastruktur","System Development","IoT & Embedded Systems","Tools"],noteT:"Cara saya bekerja.",noteB:"Saya belajar paling cepat dengan membangun dan mengukur hasilnya. Sebagian project saya kerjakan dalam tim, dan peran saya tercantum jelas di tiap kartu. Saya mencari kesempatan untuk menerapkan keahlian ini pada kebutuhan operasional nyata dan terus berkembang bersama tim.",
+proof:[["51.000+","baris transaksi dianalisis di project SuperStore","Data"],["73,65%","akurasi model sentimen opini publik (NLP)","Data"],["4 gedung","kampus dengan LAN terpasang saat magang di BTI UMS","IT"],["< 8 detik","notifikasi WhatsApp otomatis pada sistem presensi RFID","IT"],["21% → 5,4%","error takaran pada sistem pakan otomatis (skripsi)","IoT"],["3,76","IPK S1 Teknik Komputer; HKI 2024 dan jurnal 2026","Akademik"]]});
+Object.assign(T.en,{nWork:"Work & Internships",nOrg:"Organizations",nEdu:"Education",nRec:"Publications & IP",nCert:"Certificates",dTitle:"Data Analytics",dLead:"Lead project: SuperStore Analytics, followed by text and image analysis.",iTitle:"IT Support & System Development",iLead:"Networks and systems I installed, built and maintained, from campus LAN to integrated apps.",
+sk:["Data & Analytics","IT Support & Infrastructure","System Development","IoT & Embedded Systems","Tools"],noteT:"How I work.",noteB:"I learn fastest by building and measuring the results. Some projects were team efforts, and my role is stated on each card. I am looking for an opportunity to apply these skills to real operational needs and keep growing with a team.",
+proof:[["51,000+","transaction rows analysed in the SuperStore project","Data"],["73.65%","accuracy of the public-opinion sentiment model (NLP)","Data"],["4 buildings","wired with LAN during the BTI UMS internship","IT"],["< 8 s","automatic WhatsApp alert in the RFID attendance system","IT"],["21% → 5.4%","dosing error in the automated feeding system (thesis)","IoT"],["3.76","GPA, B.Eng. Computer Engineering; IP registered 2024, journal 2026","Academic"]]});
+T.id.p.data="Saya mengubah data mentah menjadi keputusan: pembersihan otomatis dengan Python, dashboard Tableau, dan temuan yang bisa langsung ditindaklanjuti, seperti lini produk merugi yang terungkap dari 51.000+ transaksi.";
+T.id.p.it="Saya menjaga sistem tetap berjalan sekaligus memperbaikinya: instalasi LAN, troubleshooting cepat, database SQL dan aplikasi web, serta dokumentasi yang membuat dukungan teknis mudah diulang.";
+T.en.p.data="I turn raw data into decisions: automated cleaning in Python, Tableau dashboards, and findings teams can act on, like a loss-making product line surfaced from 51,000+ transactions.";
+T.en.p.it="I keep systems running and improve them: LAN installation, fast troubleshooting, SQL databases and web apps, plus documentation that makes technical support repeatable.";
 const PD=[
 {n:"SuperStore Sales & Delivery Analytics",s:"SuperStore",img:"superstore.png",t:"data",repo:"superstore-analytics-project",r:"Data Analyst / BI Analyst",g:["Python","Pandas","Tableau"],d:{id:"Memproses 51.000+ baris transaksi dan menemukan sub-kategori Meja sebagai satu-satunya pusat kerugian (−$64.083) akibat diskon di atas 20%. Hasilnya dashboard Tableau interaktif dan rekomendasi batas diskon.",en:"Processed 51,000+ transaction rows and found Tables as the only loss-making sub-category (−$64,083), driven by discounts above 20%. Delivered an interactive Tableau dashboard and a discount-cap recommendation."}},
-{n:"NLP Public Opinion Analysis",s:"NLP PP 47/2024",img:"nlp-opini.png",t:"data",repo:"nlp-public-opinion-analysis",r:"ML & Data Analyst",g:["Python","Naive Bayes","LDA"],d:{id:"Akurasi 73,65% memetakan opini publik soal PP 47/2024 (54,76% netral, 41,90% positif, 3,34% negatif) beserta tiga topik utama, disajikan di situs interaktif.",en:"73.65% accuracy mapping public opinion on Regulation 47/2024 (54.76% neutral, 41.90% positive, 3.34% negative) plus three main topics, shown on an interactive site."}},
-{n:"YouTube Audience Sentiment Analytics",s:"YouTube Sentiment",img:"youtube-sentiment.png",t:"data",repo:"youtube-audience-sentiment-analytics",r:"Data Analyst / AI Developer",g:["YouTube API","IndoBERT","Pandas"],d:{id:"Pipeline dari YouTube Data API ke IndoBERT dan InSet Lexicon, menghasilkan wordcloud, tren sentimen mingguan, dan confusion matrix.",en:"Pipeline from YouTube Data API to IndoBERT and InSet Lexicon, producing a wordcloud, weekly sentiment trend and confusion matrix."}},
-{n:"Batik Keraton CNN Classification",s:"Batik CNN",img:"batik-cnn.png",t:"data",repo:"batik-cnn-classification",r:"Computer Vision / ML Engineer",g:["TensorFlow","Xception","CNN"],d:{id:"Transfer learning Xception lebih stabil daripada CNN kustom dalam mengenali empat motif batik keraton dari sekitar 1.800 gambar.",en:"Xception transfer learning was more stable than a custom CNN at recognising four royal batik motifs from about 1,800 images."}}];
+{n:"NLP-Based Public Opinion Analysis System for Policy Making",s:"NLP PP 47/2024",img:"nlp-opini.png",t:"data",repo:"nlp-public-opinion-analysis",r:"ML & Data Analyst",g:["Python","Naive Bayes","LDA"],d:{id:"Akurasi 73,65% memetakan opini publik soal PP 47/2024 (54,76% netral, 41,90% positif, 3,34% negatif) beserta tiga topik utama, disajikan di situs interaktif.",en:"73.65% accuracy mapping public opinion on Regulation 47/2024 (54.76% neutral, 41.90% positive, 3.34% negative) plus three main topics, shown on an interactive site."}},
+{n:"Social Media Sentiment Analysis & Trend Evaluation",s:"YouTube Sentiment",img:"youtube-sentiment.png",t:"data",repo:"youtube-audience-sentiment-analytics",r:"Data Analyst / AI Developer",g:["YouTube API","IndoBERT","Pandas"],d:{id:"Pipeline dari YouTube Data API ke IndoBERT dan InSet Lexicon, menghasilkan wordcloud, tren sentimen mingguan, dan confusion matrix.",en:"Pipeline from YouTube Data API to IndoBERT and InSet Lexicon, producing a wordcloud, weekly sentiment trend and confusion matrix."}},
+{n:"CNN Image Classification for Batik Keraton Motifs",s:"Batik CNN",img:"batik-cnn.png",t:"data",repo:"batik-cnn-classification",r:"Computer Vision / ML Engineer",g:["TensorFlow","Xception","CNN"],d:{id:"Transfer learning Xception lebih stabil daripada CNN kustom dalam mengenali empat motif batik keraton dari sekitar 1.800 gambar.",en:"Xception transfer learning was more stable than a custom CNN at recognising four royal batik motifs from about 1,800 images."}}];
 const PI=[
 {n:"LAN Network Management & IT Support, BTI UMS",s:"BTI UMS",img:"bti-ums.jpeg",t:"it",repo:"",r:"IT Network Engineer Intern, Februari 2025",g:["Star LAN Topology","RJ45","Switch & AP","CLI"],d:{id:"Memasang jaringan LAN di beberapa fakultas dan gedung kampus, mendiagnosis gangguan dengan LAN tester dan CLI, serta membantu inventaris dan dokumentasi aset TI.",en:"Installed LAN across several faculties and campus buildings, diagnosed faults with a LAN tester and CLI, and helped keep IT asset inventory and documentation."}},
-{n:"RFID Attendance System with Cloud & API",s:"RFID Attendance",img:"rfid-attendance.png",t:"it",repo:"rfid-attendance-system",r:"IoT & System Integration Engineer (Project Team Leader)",g:["Google Apps Script","Google Sheets","Twilio API"],d:{id:"Kartu terbaca dan tercatat sekitar 3 detik, data mengalir ke Google Sheets, dan notifikasi WhatsApp terkirim kurang dari 8 detik. Rekap manual dan titip absen hilang.",en:"Cards are read and logged in about 3 s, data flows to Google Sheets, and WhatsApp alerts arrive in under 8 s. Manual tallying and proxy attendance are gone."}},
+{n:"RFID Attendance System with Cloud & API",s:"RFID Attendance",img:"rfid-attendance.png",t:"it",repo:"rfid-attendance-system",r:"IoT & System Integration Engineer (Project Team Leader)",g:["Google Apps Script","Google Sheets","Twilio API"],d:{id:"Kartu terbaca dan tercatat sekitar 3 detik, data mengalir ke Google Sheets, dan notifikasi WhatsApp terkirim kurang dari 8 detik. Rekap manual dan kecurangan absensi (titip absen) tereliminasi.",en:"Cards are read and logged in about 3 s, data flows to Google Sheets, and WhatsApp alerts arrive in under 8 s. Manual tallying and proxy attendance are gone."}},
 {n:"RSR E-Commerce Web Application",s:"RSR E-Commerce",img:"rsr-ecommerce.png",t:"it",repo:"rsr-ecommerce-web",r:"Full-Stack Web Developer (Team of 3)",g:["PHP","SQL","JavaScript"],d:{id:"Toko online dengan front-end responsif dan database relasional PHP/SQL: katalog, pencarian, keranjang, wishlist, hingga checkout.",en:"Online shop with a responsive front end and PHP/SQL relational database: catalogue, search, cart, wishlist and checkout."}},
-{n:"IoT Smart Classroom with Priority Control",s:"Smart Classroom",img:"smart-classroom.jpg",t:"it",repo:"smart-classroom-iot",r:"Lead Researcher, publikasi jurnal",g:["ESP32","Firebase RTDB","Flutter"],d:{id:"Logika prioritas Admin > Otomatis > Manual mencegah konflik kendali (100% uji) dan memangkas durasi operasional dari 35,5 menjadi 26,2 jam. Terbit di jurnal.",en:"Admin > Auto > Manual priority logic prevented control conflicts (100% of tests) and cut runtime from 35.5 h to 26.2 h. Published in a journal."}},
+{n:"IoT Smart Classroom with Priority Control",s:"Smart Classroom",img:"smart-classroom.jpg",t:"it",repo:"smart-classroom-iot",r:"Lead Researcher, publikasi jurnal",g:["ESP32","Firebase RTDB","Flutter"],d:{id:"Logika prioritas Admin > Otomatis > Manual mencegah konflik kendali (100% uji) dan memangkas durasi operasional dari 35,5 menjadi 26,2 jam. Terpublikasi di jurnal.",en:"Admin > Auto > Manual priority logic prevented control conflicts (100% of tests) and cut runtime from 35.5 h to 26.2 h. Published in a journal."}},
 {n:"IoT Precision Automatic Feeding System",s:"Feeding System",img:"feeding-system.png",t:"it",repo:"precision-feeding-system",r:"Proyek skripsi, Lead Engineer",g:["ESP32","Firebase RBAC","Flutter"],d:{id:"Aplikasi Flutter dan Firebase dengan Role-Based Access Control serta logika fail-safe. Error takaran turun dari 21,0% menjadi 5,4%.",en:"Flutter and Firebase app with Role-Based Access Control and fail-safe logic. Dosing error fell from 21.0% to 5.4%."}}];
+PI.push({n:"Arduino-Based Automated Waste Classification Prototype",s:"Waste Classifier",img:"waste-classifier.png",t:"it",repo:"smart-waste-classifier",r:"Hardware & IoT Developer, HKI 2024",g:["Arduino Uno","Proteus","Servo"],d:{id:"Prototype memilah sampah ke lima kategori (B3, logam, kertas, organik, residu) tanpa kontak manusia.",en:"Prototype that sorts waste into five categories (hazardous, metal, paper, organic, residue) without human contact."}});
 const $=s=>document.querySelector(s);
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
-let lang=localStorage.getItem("lang")||"id",role="data";
+let lang="en",role="it";
 try{}catch(e){}
 function esc(s){return s}
 function render(){
  const t=T[lang];document.documentElement.lang=lang;
  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t[e.dataset.i]);
- document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+ document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
  $("#pitch").textContent=t.p[role];
  const rl=$("#roles");rl.setAttribute("aria-label",t.lookFor);
  rl.innerHTML=["data","it"].map(k=>`<button data-r="${k}" aria-pressed="${k===role}">${t[k]}</button>`).join("");
- const links=[["#projects",t.nProj],[CFG.cv,t.cv],[CFG.github,"GitHub"],[CFG.linkedin,"LinkedIn"]].filter(x=>x[0]);
- $("#cta").innerHTML=links.map(x=>`<a href="${x[0]}"${x[0][0]==="#"?"":' target="_blank" rel="noopener"'}>${x[1]}</a>`).join("");
- $("#proof").innerHTML=t.proof.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
- const card=(p,i)=>`<article class="proj${i===0?" feat":""}" data-t="${p.t}"><div class="shot" data-l="${p.s}"><img src="assets/projects/${p.img}" alt="" loading="lazy" onerror="this.remove()"></div><div class="body"><h3>${p.n}</h3><p class="role">${p.r}</p><p>${p.d[lang]}</p><ul class="tags">${p.g.map(x=>`<li>${x}</li>`).join("")}</ul>${p.repo?`<a class="lk" href="${R}${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:""}</div></article>`;
+ const A=(h,i,x)=>`<a href="${h}" target="_blank" rel="noopener">${IC[i]||""}${x}</a>`;
+ $("#cta").innerHTML=`<a href="#projects">${t.nProj}</a>`+(CFG.cv?A(CFG.cv,"",t.cv):"")+[[CFG.github,"gh","GitHub"],[CFG.linkedin,"in","LinkedIn"],[CFG.whatsapp,"wa","WhatsApp"]].filter(x=>x[0]).map(x=>A(...x)).join("");
+ $("#proof").innerHTML=t.proof.map(p=>`<div><small>${p[2]}</small><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
+ const card=(p,i)=>{const b="assets/projects/"+p.img.replace(/\.\w+$/,"");return `<article class="proj${i===0?" feat":""}" data-t="${p.t}"><div class="shot" data-l="${p.s}"><img src="${b}.png" data-b="${b}" data-k="1" alt="" loading="lazy" onerror="nx(this)"></div><div class="body"><h3>${p.n}</h3><p class="role">${p.r}</p><p>${p.d[lang]}</p><ul class="tags">${p.g.map(x=>`<li>${x}</li>`).join("")}</ul>${p.repo?`<a class="lk" href="${R}${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:""}</div></article>`};
  $("#listD").innerHTML=PD.map(card).join("");$("#listI").innerHTML=PI.map(card).join("");
  $("#secData").style.order=role==="data"?0:1;$("#secIt").style.order=role==="it"?0:1;
- $("#sk").innerHTML=SK.map((g,i)=>`<div><h3>${t.sk[i]}</h3><ul>${g.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
- $("#ex").innerHTML=t.ex.map(e=>`<div><b>${e[0]}</b><span>${e[1]}</span></div>`).join("");
- const c=[[CFG.email&&"mailto:"+CFG.email,"Email"],[CFG.linkedin,"LinkedIn"],[CFG.github,"GitHub"]].filter(x=>x[0]);
- $("#ct").innerHTML=c.map(x=>`<a href="${x[0]}" target="_blank" rel="noopener">${x[1]}</a>`).join("");
+ $("#sk").innerHTML=SK.map((g,i)=>`<div><h3>${t.sk[i]}</h3><ul>${g.map(x=>`<li>${x[1]?`<img src="https://cdn.simpleicons.org/${x[1]}/C9CEF0" alt="" loading="lazy" onerror="this.remove()">`:""}${x[0]}</li>`).join("")}</ul></div>`).join("");
+ const row=(o,ph)=>`<article class="row"><i class="lg" data-l="${o.s}"><img src="assets/logos/${o.l}.png" data-b="assets/logos/${o.l}" data-k="1" alt="" onerror="nx(this)"></i><span class="rt"><b>${L(o.t)}</b><span class="o">${o.o}</span><span class="m">${L(o.m)}</span><span class="d">${L(o.d)}</span></span>${ph?`<img class="ph" src="assets/photos/student.png" alt="" onerror="this.remove()">`:""}</article>`;
+ $("#ex").innerHTML=EX.map(o=>row(o)).join("");$("#og").innerHTML=OG.map(o=>row(o)).join("");$("#ed").innerHTML=row(ED,1);
+ $("#rc").innerHTML=RC.map(r=>`<a class="rec" href="${r[0]}" target="_blank" rel="noopener"><i class="lg" data-l="${r[1]}"></i><span class="rt"><b>${L(r[2])}</b><span class="d">${L(r[3])}</span><span class="m">${L(r[4])}</span></span></a>`).join("");
+ $("#cx").innerHTML=CERTS.map(c=>c.u?`<a href="${c.u}" target="_blank" rel="noopener">${c.n}</a>`:`<span>${c.n}</span>`).join("");
+ $("#ct").innerHTML=[[CFG.email,"mail","Email"],[CFG.linkedin,"in","LinkedIn"],[CFG.whatsapp,"wa","WhatsApp"],[CFG.github,"gh","GitHub"]].filter(x=>x[0]).map(x=>A(...x)).join("");
  $("#arch").href=CFG.archive;
  document.querySelectorAll(".proj").forEach((e,i)=>e.style.setProperty("--d",i*60+"ms"));
  if(!RM)$("#pitch").animate([{opacity:0,transform:"translateY(6px)"},{opacity:1,transform:"none"}],{duration:320});
 }
 document.addEventListener("click",e=>{
- const l=e.target.closest("[data-l]"),r=e.target.closest("[data-r]");
- if(l){lang=l.dataset.l;try{localStorage.setItem("lang",lang)}catch(x){}render()}
+ const l=e.target.closest("[data-lang]"),r=e.target.closest("[data-r]");
+ if(l){lang=l.dataset.lang;try{localStorage.setItem("lang",lang)}catch(x){}render()}
  if(r){role=r.dataset.r;history.replaceState(null,"",role==="all"?location.pathname:"#"+role);render()}
 });
-const h=location.hash.slice(1);if(["data","it","iot"].includes(h))role=h;
+const h=location.hash.slice(1);if(["data","it"].includes(h))role=h;
 if(matchMedia("(prefers-reduced-motion:reduce)").matches)document.querySelector("animateMotion").remove();
 document.addEventListener("pointermove",e=>{const c=e.target.closest(".proj");if(c){const r=c.getBoundingClientRect();c.style.setProperty("--x",e.clientX-r.left+"px");c.style.setProperty("--y",e.clientY-r.top+"px")}});
 render();
 document.documentElement.classList.add("js");
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+setTimeout(()=>document.querySelectorAll(".rv").forEach(e=>e.classList.add("in")),1800);
 </script>
 </body>
 </html>
