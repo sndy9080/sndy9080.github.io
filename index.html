@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sendy Tegar Mahendra | IoT, Data & Software Systems</title>
-<meta name="description" content="Portofolio Sendy Tegar Mahendra: sistem IoT, analitik data, dan perangkat lunak dari sensor sampai dashboard.">
+<title>Sendy Tegar Mahendra | Data Analyst & IT Support</title>
+<meta name="description" content="Portofolio Sendy Tegar Mahendra, lulusan Teknik Komputer: analisis data (Python, SQL, Tableau) dan IT support serta pengembangan sistem.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B5FFF'/><circle cx='30' cy='50' r='9' fill='white'/><circle cx='70' cy='50' r='9' fill='%23FFC145'/><path d='M39 50h22' stroke='white' stroke-width='6'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +27,7 @@ header nav{display:flex;gap:26px}header nav a{color:var(--mu);text-decoration:no
 .chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ln);border-radius:99px;padding:6px 16px;font-size:14px;color:var(--mu)}
 .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:ping 2.2s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%,100%{box-shadow:0 0 0 9px rgba(74,222,128,0)}}
-.hero h1{font-size:clamp(46px,9.5vw,112px);font-weight:800;letter-spacing:-.055em;line-height:.96;max-width:11em;margin:26px auto 0}
+.hero h1{font-size:clamp(46px,9.5vw,90px);font-weight:800;letter-spacing:-.055em;line-height:.96;max-width:11em;margin:26px auto 0}
 .sub{font-size:clamp(17px,2.2vw,21px);color:var(--mu);max-width:34em;margin:24px auto 0}
 .cta,#ct{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
 .cta a,#ct a{padding:14px 28px;border-radius:99px;font-weight:600;text-decoration:none;border:1px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--g) border-box;transition:transform .25s,box-shadow .25s}
@@ -82,10 +82,22 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 .js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s}.js .rv.in{opacity:1;transform:none}
 @media(max-width:600px){header nav{display:none}.hero{padding-top:56px}.glass{padding:24px 14px 14px}.pitch{min-height:6em}.proj{padding:20px}.panel{padding:52px 18px}}
 @media(prefers-reduced-motion:reduce){*,::before{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+.work{display:flex;flex-direction:column}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;margin-top:36px}
+.proj,.proj[data-t]{display:block;padding:0;overflow:hidden}
+.proj[data-t]::before{display:none}
+.proj>*{grid-column:auto}
+.shot{position:relative;aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg,#7C4DFF,#2F6BFF);overflow:hidden}
+.proj[data-t=it] .shot{background:linear-gradient(135deg,#14C8A8,#2BA5E6)}
+.shot::after{content:attr(data-l);font:800 clamp(20px,3vw,28px)/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;color:rgba(255,255,255,.92);text-align:center;padding:0 16px}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .5s}
+.proj:hover .shot img{transform:scale(1.04)}
+.body{padding:22px 24px 24px;display:grid}
+@media(min-width:760px){.proj.feat{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr}.proj.feat .shot{aspect-ratio:auto;min-height:280px}.proj.feat h3{font-size:28px}.proj.feat .body{align-content:center}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><strong>Sendy T. M.</strong>
+<header><div class="wrap"><strong>Sendy Tegar Mahendra</strong>
 <nav><a href="#projects" data-i="nProj"></a><a href="#skills" data-i="nSkill"></a><a href="#exp" data-i="nExp"></a><a href="#contact" data-i="nCont"></a></nav>
 <div class="lang" role="group" aria-label="Language"><button data-l="id">ID</button><button data-l="en">EN</button></div></div></header>
 <main class="wrap">
@@ -101,16 +113,19 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 <svg viewBox="0 0 900 90" role="img"><title>Sensor to dashboard</title>
 <path id="path" d="M70 45H830" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
 <g font-family="Bricolage Grotesque,sans-serif" font-size="15" text-anchor="middle" fill="currentColor">
-<circle cx="70" cy="45" r="14" fill="#2F6BFF"/><text x="70" y="82">Sensor</text>
-<circle cx="323" cy="45" r="14" fill="#5B6CFF"/><text x="323" y="82">ESP32</text>
-<circle cx="577" cy="45" r="14" fill="#8B5CF6"/><text x="577" y="82">Cloud</text>
+<circle cx="70" cy="45" r="14" fill="#2F6BFF"/><text x="70" y="82">Data</text>
+<circle cx="323" cy="45" r="14" fill="#5B6CFF"/><text x="323" y="82">Python/SQL</text>
+<circle cx="577" cy="45" r="14" fill="#8B5CF6"/><text x="577" y="82">Database</text>
 <circle cx="830" cy="45" r="14" fill="#FFC145"/><text x="830" y="82">Dashboard</text></g>
 <circle r="6" fill="#fff" id="dot"><animateMotion dur="4s" repeatCount="2" fill="freeze"><mpath href="#path"/></animateMotion></circle>
 </svg></div>
 </div></div>
 <div class="proof rv" id="proof"></div>
 </div>
-<section id="projects"><h2 class="rv" data-i="nProj"></h2><p class="lead rv" data-i="projLead"></p><div id="list"></div></section>
+<div id="projects" class="work">
+<section id="secData"><h2 class="rv" data-i="dTitle"></h2><p class="lead rv" data-i="dLead"></p><div class="plist" id="listD"></div></section>
+<section id="secIt"><h2 class="rv" data-i="iTitle"></h2><p class="lead rv" data-i="iLead"></p><div class="plist" id="listI"></div></section>
+</div>
 <section id="skills"><h2 class="rv" data-i="nSkill"></h2><div class="skills rv" id="sk"></div></section>
 <section id="exp"><h2 class="rv" data-i="nExp"></h2><div class="exp rv" id="ex"></div></section>
 <section id="note"><div class="note rv"><h2 data-i="noteT"></h2><p data-i="noteB"></p></div></section>
@@ -120,15 +135,15 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 
 <script>
 /* ===== ISI DI SINI (kosongkan "" bila belum ada; tautan kosong otomatis tidak ditampilkan) ===== */
-const CFG={github:"https://github.com/sndy9080",email:"",linkedin:"",cv:"",
+const CFG={github:"https://github.com/sndy9080",email:"mailto:sndy9080@gmail.com",linkedin:"https://www.linkedin.com/in/sendytegar/",cv:"",
 archive:"https://oil-link-e29.notion.site/Portfolio-3d68df3bbbe4808ca254ee30ad84a26e"};
 /* =============================================================================================== */
 const R="https://github.com/sndy9080/";
 const T={
-id:{nProj:"Proyek",nSkill:"Keahlian",nExp:"Pengalaman",nCont:"Kontak",head:"Sendy Tegar Mahendra, mahasiswa Informatika yang membangun sistem IoT, data, dan perangkat lunak.",open:"Terbuka untuk magang",h1:"Dari sensor sampai dashboard.",noteT:"Catatan jujur.",noteB:"Saya masih mahasiswa dan belajar paling cepat dengan membangun. Beberapa proyek saya kerjakan dalam tim, dan peran saya ditulis di tiap kartu. Saya mencari magang untuk menerapkannya di lingkungan kerja yang nyata.",
-lookFor:"Saya melamar untuk:",all:"Semua",data:"Data & AI",it:"IT & Infrastruktur",iot:"IoT & Embedded",
+id:{nProj:"Proyek",nSkill:"Keahlian",nExp:"Pengalaman",nCont:"Kontak",head:"Sendy Tegar Mahendra, lulusan Teknik Komputer, Data Analyst atau IT Support & System Development.",open:"Terbuka untuk posisi IT & Data Analyst",h1:"Data yang rapi, sistem yang berjalan.",noteT:"Catatan jujur.",noteB:"Saya masih mahasiswa dan belajar paling cepat dengan membangun. Beberapa proyek saya kerjakan dalam tim, dan peran saya ditulis di tiap kartu. Saya mencari magang untuk menerapkannya di lingkungan kerja yang nyata.",
+lookFor:"Saya melamar untuk:",data:"Data Analyst",it:"IT Support & System Dev",
 projLead:"Sembilan proyek, diurutkan sesuai peran yang Anda pilih di atas. Semua kode ada di GitHub.",
-repo:"Lihat repositori",cv:"Unduh CV",contLead:"Terbuka untuk magang. Hubungi saya lewat:",archive:"Arsip lengkap di Notion",
+repo:"Lihat repositori",cv:"Unduh CV",contLead:"Terbuka untuk magang/posisi IT dan Data Analyst. Hubungi saya lewat:",archive:"Arsip lengkap di Notion",
 p:{all:"Saya membangun sistem dari sensor sampai dashboard: perangkat IoT, model data, dan aplikasi yang benar-benar dipakai.",
 data:"Saya mengubah data mentah menjadi keputusan: pembersihan data, model NLP dan CNN, serta dashboard Tableau.",
 it:"Saya menjaga sistem tetap berjalan: jaringan LAN, troubleshooting, aplikasi web, database, dan dokumentasi.",
@@ -138,10 +153,10 @@ sk:["Data & ML","IoT & Embedded","Software & Web","Infrastruktur & Administrasi"
 ex:[["IT Network Engineer Intern, BTI UMS","Feb 2025. Instalasi LAN topologi Star, crimping RJ45, penempatan switch dan access point, helpdesk, inventaris hardware."],
 ["Praktik Sistem Ganda, MNS Computer","Sertifikat praktik kerja industri."],
 ["Publikasi jurnal","Smart Classroom IoT dengan arsitektur kontrol prioritas (proyek Lead Researcher)."]]},
-en:{nProj:"Projects",nSkill:"Skills",nExp:"Experience",nCont:"Contact",head:"Sendy Tegar Mahendra, an informatics student building IoT, data and software systems.",open:"Open to internships",h1:"From sensor to dashboard.",noteT:"An honest note.",noteB:"I am still a student and learn fastest by building. Some projects were team efforts, and my role is stated on each card. I am looking for an internship to apply this in a real working environment.",
-lookFor:"I am applying for:",all:"All",data:"Data & AI",it:"IT & Infrastructure",iot:"IoT & Embedded",
+en:{nProj:"Projects",nSkill:"Skills",nExp:"Experience",nCont:"Contact",head:"Sendy Tegar Mahendra, a computer engineering graduate currently seeking a position as a Data Analyst or in the field of IT Support & Systems Development.",open:"Open for internships/positions in IT and Data Analysis",h1:"Clean data, running systems.",noteT:"An honest note.",noteB:"I am still a student and learn fastest by building. Some projects were team efforts, and my role is stated on each card. I am looking for an internship to apply this in a real working environment.",
+lookFor:"I am applying for:",data:"Data Analyst",it:"IT Support & System Dev",
 projLead:"Nine projects, ordered by the role you pick above. All code is on GitHub.",
-repo:"View repository",cv:"Download CV",contLead:"Open to internships. Reach me via:",archive:"Full archive on Notion",
+repo:"View repository",cv:"Download CV",contLead:"Open for internships/positions in IT and Data Analysis. Reach me via:",archive:"Full archive on Notion",
 p:{all:"I build systems from sensor to dashboard: IoT devices, data models, and apps people actually use.",
 data:"I turn raw data into decisions: data cleaning, NLP and CNN models, and Tableau dashboards.",
 it:"I keep systems running: LAN setup, troubleshooting, web apps, databases, and documentation.",
@@ -151,34 +166,34 @@ sk:["Data & ML","IoT & Embedded","Software & Web","Infrastructure & Admin"],
 ex:[["IT Network Engineer Intern, BTI UMS","Feb 2025. Star-topology LAN installation, RJ45 crimping, switch and access point deployment, helpdesk, hardware inventory."],
 ["Industry placement, MNS Computer","Work-practice certificate."],
 ["Journal publication","IoT Smart Classroom with priority-control architecture (Lead Researcher)."]]}};
-const SK=[["Python · Pandas · Scikit-Learn","Tableau","NLP (IndoBERT, Naive Bayes, LDA)","CNN, TensorFlow/Keras, Xception","Google Colab"],
-["ESP32 / ESP8266 / Arduino (C/C++)","Multi-sensor integration","Firebase RTDB","REST API","Proteus 8"],
-["Flutter / Dart","HTML/CSS, PHP","MySQL / PostgreSQL","Git / GitHub","UI/UX with Figma"],
-["LAN & routing, UTP/RJ45","Helpdesk and troubleshooting","Google Apps Script & Twilio API","Microsoft Office"]];
-/* id, repo, track, tags, role, {id,en} result */
-const P=[
-[11,"superstore-analytics-project","data",["Python","Pandas","Tableau"],"Data Analyst / BI Analyst",
-{id:"Menemukan sub-kategori Meja sebagai satu-satunya pusat kerugian (−$64.083) dari 51.000+ baris transaksi, lengkap dengan dashboard Tableau dan rekomendasi batas diskon.",en:"Found Tables as the only loss-making sub-category (−$64,083) across 51,000+ transactions, with a Tableau dashboard and a discount-cap recommendation."},"SuperStore Sales & Delivery Analytics"],
-[9,"precision-feeding-system","iot",["ESP32","Flutter","Firebase"],"Lead IoT & Systems Engineer",
-{id:"Error dosis pakan turun dari 21,0% (manual) menjadi 5,4% dengan konveyor dua tahap, ESP32, dan aplikasi mobile. Tingkat keberhasilan uji black box 100%.",en:"Cut feed dosing error from 21.0% (manual) to 5.4% with a double-stage conveyor, ESP32 and a mobile app. 100% success in black-box testing."},"IoT Precision Automatic Feeding System"],
-[8,"smart-classroom-iot","iot",["ESP32","Flutter","Firebase"],"IoT Systems Engineer / Lead Researcher",
-{id:"Logika prioritas mencegah konflik kendali 100% dan menurunkan durasi operasional perangkat dari 35,5 jam menjadi 26,2 jam. Dipublikasikan di jurnal.",en:"Priority logic prevented control conflicts in 100% of tests and cut device runtime from 35.5 h to 26.2 h. Published in a journal."},"IoT Smart Classroom with Priority Control"],
-[5,"rfid-attendance-system","iot",["ESP8266","Google Apps Script","Twilio"],"IoT & System Integration Engineer",
-{id:"Kartu terbaca dan tersimpan ke cloud sekitar 3 detik, notifikasi WhatsApp terkirim kurang dari 8 detik. Mengeliminasi titip absen.",en:"Cards are read and stored in the cloud in about 3 s, with WhatsApp notifications under 8 s. Removes proxy attendance."},"RFID Attendance with Cloud & API"],
-[4,"nlp-public-opinion-analysis","data",["Python","Naive Bayes","LDA"],"ML & Data Analyst",
-{id:"Akurasi 73,65% pada opini publik soal PP 47/2024: 54,76% netral, 41,90% positif, 3,34% negatif, plus tiga topik utama dalam situs interaktif.",en:"73.65% accuracy on public opinion about Government Regulation 47/2024: 54.76% neutral, 41.90% positive, 3.34% negative, plus three main topics on an interactive site."},"NLP Public Opinion Analysis"],
-[10,"youtube-audience-sentiment-analytics","data",["YouTube API","IndoBERT","Pandas"],"Data Analyst / AI Developer",
-{id:"Pipeline dari YouTube Data API hingga IndoBERT dan InSet Lexicon, menghasilkan wordcloud, tren sentimen mingguan, dan confusion matrix.",en:"Pipeline from YouTube Data API to IndoBERT and InSet Lexicon, producing a wordcloud, weekly sentiment trend and confusion matrix."},"YouTube Audience Sentiment Analytics"],
-[7,"batik-cnn-classification","data",["TensorFlow","Xception","CNN"],"Computer Vision / ML Engineer",
-{id:"Transfer learning Xception lebih stabil dibanding CNN kustom dalam mengenali empat motif batik keraton dari sekitar 1.800 gambar.",en:"Xception transfer learning outperformed a custom CNN at recognising four royal batik motifs from about 1,800 images."},"Batik Keraton CNN Classification"],
-[3,"rsr-ecommerce-web","it",["HTML/CSS","PHP","MySQL"],"Full-Stack Web Developer (team of 3)",
-{id:"Toko online lengkap: katalog, pencarian, keranjang, wishlist, hingga checkout.",en:"Complete online shop: catalogue, search, cart, wishlist and checkout."},"E-Commerce Web App (Online Shop RSR)"],
-[1,"smart-waste-classifier","iot",["Arduino Uno","Multi-sensor","Servo"],"Hardware & IoT Developer",
-{id:"Purwarupa memilah sampah otomatis ke lima kategori (B3, logam, kertas, organik, residu) tanpa kontak manusia.",en:"Prototype sorts waste automatically into five categories (hazardous, metal, paper, organic, residue) without human contact."},"Arduino Smart Waste Classifier"]];
-const ORDER={all:[11,9,8,5,4,10,7,3,1],data:[11,4,10,7,3,5,9,8,1],it:[3,5,8,9,11,1,4,10,7],iot:[9,8,5,1,3,11,4,10,7]};
+const SK=[["Python · Pandas · Matplotlib","Tableau","SQL (MySQL/PostgreSQL)","EDA dan data cleaning","Scikit-Learn · NLP · IndoBERT","Google Colab"],
+["Instalasi LAN (UTP, RJ45)","Switch dan access point","Troubleshooting dan CLI","Inventaris aset TI","Dokumentasi teknis","MikroTik dasar"],
+["HTML/CSS/JavaScript","PHP","Flutter / Dart","REST API","Google Apps Script dan Twilio","Firebase (RTDB, Auth)"],
+["ESP32 / Arduino / NodeMCU","Git / GitHub","Microsoft Office","Figma"]];
+Object.assign(T.id,{dTitle:"Data Analytics",dLead:"Proyek utama: SuperStore Analytics, dilanjutkan analisis teks dan citra.",iTitle:"IT Support & System Development",iLead:"Jaringan dan sistem yang saya pasang, bangun, dan rawat, dari LAN kampus sampai aplikasi terintegrasi.",
+sk:["Data & Analytics","IT Support & Infrastruktur","Pengembangan Sistem","Pendukung"],
+proof:[["51.000+","baris transaksi dianalisis"],["−$64.083","sumber kerugian ditemukan"],["< 8 detik","notifikasi WhatsApp otomatis"],["3,76","IPK S1 Teknik Komputer"],["HKI + jurnal","terdaftar 2024, terbit 2026"]]});
+Object.assign(T.en,{dTitle:"Data Analytics",dLead:"Lead project: SuperStore Analytics, followed by text and image analysis.",iTitle:"IT Support & System Development",iLead:"Networks and systems I installed, built and maintained, from campus LAN to integrated apps.",
+sk:["Data & Analytics","IT Support & Infrastructure","System Development","Supporting tools"],
+proof:[["51,000+","transaction rows analysed"],["−$64,083","loss source identified"],["< 8 s","automatic WhatsApp alert"],["3.76","GPA, B.Eng. Computer Engineering"],["IP + journal","registered 2024, published 2026"]]});
+T.id.p.data="Saya mengubah data mentah menjadi keputusan: pembersihan data dengan Python, dashboard Tableau, dan laporan yang siap dipakai tim.";
+T.id.p.it="Saya menjaga sistem tetap berjalan dan ikut mengembangkannya: jaringan LAN, troubleshooting, database SQL, aplikasi web, dan dokumentasi.";
+T.en.p.data="I turn raw data into decisions: data cleaning in Python, Tableau dashboards, and reports teams can use right away.";
+T.en.p.it="I keep systems running and help improve them: LAN setup, troubleshooting, SQL databases, web apps and documentation.";
+const PD=[
+{n:"SuperStore Sales & Delivery Analytics",s:"SuperStore",img:"superstore.png",t:"data",repo:"superstore-analytics-project",r:"Data Analyst / BI Analyst",g:["Python","Pandas","Tableau"],d:{id:"Memproses 51.000+ baris transaksi dan menemukan sub-kategori Meja sebagai satu-satunya pusat kerugian (−$64.083) akibat diskon di atas 20%. Hasilnya dashboard Tableau interaktif dan rekomendasi batas diskon.",en:"Processed 51,000+ transaction rows and found Tables as the only loss-making sub-category (−$64,083), driven by discounts above 20%. Delivered an interactive Tableau dashboard and a discount-cap recommendation."}},
+{n:"NLP Public Opinion Analysis",s:"NLP PP 47/2024",img:"nlp-opini.png",t:"data",repo:"nlp-public-opinion-analysis",r:"ML & Data Analyst",g:["Python","Naive Bayes","LDA"],d:{id:"Akurasi 73,65% memetakan opini publik soal PP 47/2024 (54,76% netral, 41,90% positif, 3,34% negatif) beserta tiga topik utama, disajikan di situs interaktif.",en:"73.65% accuracy mapping public opinion on Regulation 47/2024 (54.76% neutral, 41.90% positive, 3.34% negative) plus three main topics, shown on an interactive site."}},
+{n:"YouTube Audience Sentiment Analytics",s:"YouTube Sentiment",img:"youtube-sentiment.png",t:"data",repo:"youtube-audience-sentiment-analytics",r:"Data Analyst / AI Developer",g:["YouTube API","IndoBERT","Pandas"],d:{id:"Pipeline dari YouTube Data API ke IndoBERT dan InSet Lexicon, menghasilkan wordcloud, tren sentimen mingguan, dan confusion matrix.",en:"Pipeline from YouTube Data API to IndoBERT and InSet Lexicon, producing a wordcloud, weekly sentiment trend and confusion matrix."}},
+{n:"Batik Keraton CNN Classification",s:"Batik CNN",img:"batik-cnn.png",t:"data",repo:"batik-cnn-classification",r:"Computer Vision / ML Engineer",g:["TensorFlow","Xception","CNN"],d:{id:"Transfer learning Xception lebih stabil daripada CNN kustom dalam mengenali empat motif batik keraton dari sekitar 1.800 gambar.",en:"Xception transfer learning was more stable than a custom CNN at recognising four royal batik motifs from about 1,800 images."}}];
+const PI=[
+{n:"LAN Installation & IT Support, BTI UMS",s:"BTI UMS",img:"bti-ums.png",t:"it",repo:"",r:"IT Network Engineer Intern, Februari 2025",g:["LAN Star","RJ45","Switch & AP","CLI"],d:{id:"Memasang jaringan LAN di beberapa fakultas dan gedung kampus, mendiagnosis gangguan dengan LAN tester dan CLI, serta membantu inventaris dan dokumentasi aset TI.",en:"Installed LAN across several faculties and campus buildings, diagnosed faults with a LAN tester and CLI, and helped keep IT asset inventory and documentation."}},
+{n:"RFID Attendance System with Cloud & API",s:"RFID Attendance",img:"rfid-attendance.png",t:"it",repo:"rfid-attendance-system",r:"IoT & System Integration Engineer (tim)",g:["Google Apps Script","Google Sheets","Twilio API"],d:{id:"Kartu terbaca dan tercatat sekitar 3 detik, data mengalir ke Google Sheets, dan notifikasi WhatsApp terkirim kurang dari 8 detik. Rekap manual dan titip absen hilang.",en:"Cards are read and logged in about 3 s, data flows to Google Sheets, and WhatsApp alerts arrive in under 8 s. Manual tallying and proxy attendance are gone."}},
+{n:"RSR E-Commerce Web Application",s:"RSR E-Commerce",img:"rsr-ecommerce.png",t:"it",repo:"rsr-ecommerce-web",r:"Full-Stack Web Developer (tim 3 orang)",g:["PHP","SQL","JavaScript"],d:{id:"Toko online dengan front-end responsif dan database relasional PHP/SQL: katalog, pencarian, keranjang, wishlist, hingga checkout.",en:"Online shop with a responsive front end and PHP/SQL relational database: catalogue, search, cart, wishlist and checkout."}},
+{n:"IoT Smart Classroom with Priority Control",s:"Smart Classroom",img:"smart-classroom.png",t:"it",repo:"smart-classroom-iot",r:"Lead Researcher, publikasi jurnal",g:["ESP32","Firebase RTDB","Flutter"],d:{id:"Logika prioritas Admin > Otomatis > Manual mencegah konflik kendali (100% uji) dan memangkas durasi operasional dari 35,5 menjadi 26,2 jam. Terbit di jurnal.",en:"Admin > Auto > Manual priority logic prevented control conflicts (100% of tests) and cut runtime from 35.5 h to 26.2 h. Published in a journal."}},
+{n:"IoT Precision Automatic Feeding System",s:"Feeding System",img:"feeding-system.png",t:"it",repo:"precision-feeding-system",r:"Proyek skripsi, Lead Engineer",g:["ESP32","Firebase RBAC","Flutter"],d:{id:"Aplikasi Flutter dan Firebase dengan Role-Based Access Control serta logika fail-safe. Error takaran turun dari 21,0% menjadi 5,4%.",en:"Flutter and Firebase app with Role-Based Access Control and fail-safe logic. Dosing error fell from 21.0% to 5.4%."}}];
 const $=s=>document.querySelector(s);
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
-let lang=localStorage.getItem("lang")||"id",role="all";
+let lang=localStorage.getItem("lang")||"id",role="data";
 try{}catch(e){}
 function esc(s){return s}
 function render(){
@@ -187,13 +202,13 @@ function render(){
  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
  $("#pitch").textContent=t.p[role];
  const rl=$("#roles");rl.setAttribute("aria-label",t.lookFor);
- rl.innerHTML=["all","data","it","iot"].map(k=>`<button data-r="${k}" aria-pressed="${k===role}">${t[k]}</button>`).join("");
+ rl.innerHTML=["data","it"].map(k=>`<button data-r="${k}" aria-pressed="${k===role}">${t[k]}</button>`).join("");
  const links=[["#projects",t.nProj],[CFG.cv,t.cv],[CFG.github,"GitHub"],[CFG.linkedin,"LinkedIn"]].filter(x=>x[0]);
  $("#cta").innerHTML=links.map(x=>`<a href="${x[0]}"${x[0][0]==="#"?"":' target="_blank" rel="noopener"'}>${x[1]}</a>`).join("");
  $("#proof").innerHTML=t.proof.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
- const by=Object.fromEntries(P.map(p=>[p[0],p]));
- $("#list").innerHTML=ORDER[role].map((id,i)=>{const p=by[id];
-  return `<article class="proj" data-t="${p[2]}"><h3>${p[6]}${i<3&&role!=="all"?`<span class="badge">${role==="data"?"Data":role==="it"?"IT":"IoT"}</span>`:""}</h3><p class="role">${p[4]}</p><p>${p[5][lang]}</p><ul class="tags">${p[3].map(x=>`<li>${x}</li>`).join("")}</ul><a class="lk" href="${R}${p[1]}" target="_blank" rel="noopener">${t.repo}</a></article>`}).join("");
+ const card=(p,i)=>`<article class="proj${i===0?" feat":""}" data-t="${p.t}"><div class="shot" data-l="${p.s}"><img src="assets/projects/${p.img}" alt="" loading="lazy" onerror="this.remove()"></div><div class="body"><h3>${p.n}</h3><p class="role">${p.r}</p><p>${p.d[lang]}</p><ul class="tags">${p.g.map(x=>`<li>${x}</li>`).join("")}</ul>${p.repo?`<a class="lk" href="${R}${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:""}</div></article>`;
+ $("#listD").innerHTML=PD.map(card).join("");$("#listI").innerHTML=PI.map(card).join("");
+ $("#secData").style.order=role==="data"?0:1;$("#secIt").style.order=role==="it"?0:1;
  $("#sk").innerHTML=SK.map((g,i)=>`<div><h3>${t.sk[i]}</h3><ul>${g.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
  $("#ex").innerHTML=t.ex.map(e=>`<div><b>${e[0]}</b><span>${e[1]}</span></div>`).join("");
  const c=[[CFG.email&&"mailto:"+CFG.email,"Email"],[CFG.linkedin,"LinkedIn"],[CFG.github,"GitHub"]].filter(x=>x[0]);
