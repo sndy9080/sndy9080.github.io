@@ -180,7 +180,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--tx)}
 
 <script>
 /* ===== ISI DI SINI (kosongkan "" bila belum ada; tautan kosong otomatis tidak ditampilkan) ===== */
-const CFG={github:"https://github.com/sndy9080",email:"mailto:sndy9080@gmail.com",linkedin:"https://www.linkedin.com/in/sendytegar/",cv:"",whatsapp:"https://wa.me/6285226151683",
+const CFG={github:"https://github.com/sndy9080",email:"mailto:sndy9080@gmail.com",linkedin:"https://www.linkedin.com/in/sendytegar/",cvData:"https://drive.google.com/file/d/1N_M5Q7h19Kt_vkdOqEw5cC24Miw8dfum/view",cvIt:"https://drive.google.com/file/d/1AkvIEkEKLbIPsKe0-UUgY4qZ7TUlryqZ/view",whatsapp:"https://wa.me/6285226151683",
 archive:"https://oil-link-e29.notion.site/Portfolio-3d68df3bbbe4808ca254ee30ad84a26e"};
 /* =============================================================================================== */
 const R="https://github.com/sndy9080/";
@@ -211,7 +211,7 @@ sk:["Data & ML","IoT & Embedded","Software & Web","Infrastructure & Admin"],
 ex:[["IT Network Engineer Intern, BTI UMS","Feb 2025. Star-topology LAN installation, RJ45 crimping, switch and access point deployment, helpdesk, hardware inventory."],
 ["Industry placement, MNS Computer","Work-practice certificate."],
 ["Journal publication","IoT Smart Classroom with priority-control architecture (Lead Researcher)."]]}};
-const IC={mail:'<svg class="ic" viewBox="0 0 16 16"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2 4.5l6 4.500 6-4.500" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>',
+const IC={cv:'<svg class="ic" viewBox="0 0 16 16"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',mail:'<svg class="ic" viewBox="0 0 16 16"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2 4.5l6 4.500 6-4.500" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>',
 in:'<svg class="ic" viewBox="0 0 16 16"><path d="M2 6h3v8H2zM3.5 2a1.700 1.700 0 110 3.400 1.700 1.700 0 010-3.400zM7 6h2.900v1.100c.5-.8 1.500-1.300 2.700-1.300C14.800 5.800 15 7.600 15 9.500V14h-3v-4c0-1-.1-1.900-1.200-1.900S10 9 10 10v4H7z" fill="currentColor"/></svg>',
 wa:'<svg class="ic" viewBox="0 0 16 16"><path d="M2 14l.9-3A6 6 0 1 1 5 13.100z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 5.500c0 2.500 2 4.500 4.500 4.500l.8-1.200-1.500-.8-.7.600c-.6-.3-1.200-.9-1.500-1.500l.6-.7-.8-1.500z" fill="currentColor"/></svg>',
 gh:'<svg class="ic" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'};
@@ -286,7 +286,8 @@ function render(){
  const rl=$("#roles");rl.setAttribute("aria-label",t.lookFor);
  rl.innerHTML=["data","it"].map(k=>`<button data-r="${k}" aria-pressed="${k===role}">${t[k]}</button>`).join("");
  const A=(h,i,x)=>`<a href="${h}" target="_blank" rel="noopener">${IC[i]||""}${x}</a>`;
- $("#cta").innerHTML=`<a href="#projects">${t.nProj}</a>`+(CFG.cv?A(CFG.cv,"",t.cv):"")+[[CFG.github,"gh","GitHub"],[CFG.linkedin,"in","LinkedIn"],[CFG.whatsapp,"wa","WhatsApp"]].filter(x=>x[0]).map(x=>A(...x)).join("");
+ const cvu=role==="data"?CFG.cvData:CFG.cvIt;
+ $("#cta").innerHTML=`<a href="#projects">${t.nProj}</a>`+(cvu?A(cvu,"cv",t.cv+" · "+(role==="data"?"Data Analyst":"IT Support")):"")+[[CFG.github,"gh","GitHub"],[CFG.linkedin,"in","LinkedIn"],[CFG.whatsapp,"wa","WhatsApp"]].filter(x=>x[0]).map(x=>A(...x)).join("");
  $("#proof").innerHTML=t.proof.map(p=>`<div><small>${p[2]}</small><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
  const card=(p,i)=>{const b="assets/projects/"+p.img.replace(/\.\w+$/,"");return `<article class="proj${i===0?" feat":""}" data-t="${p.t}"><div class="shot" data-l="${p.s}"><img src="${b}.png" data-b="${b}" data-k="1" alt="" loading="lazy" onerror="nx(this)"></div><div class="body"><h3>${p.n}</h3><p class="role">${p.r}</p><p>${p.d[lang]}</p><ul class="tags">${p.g.map(x=>`<li>${x}</li>`).join("")}</ul>${p.repo?`<a class="lk" href="${R}${p.repo}" target="_blank" rel="noopener">${t.repo}</a>`:""}</div></article>`};
  $("#listD").innerHTML=PD.map(card).join("");$("#listI").innerHTML=PI.map(card).join("");
